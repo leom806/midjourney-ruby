@@ -1,6 +1,8 @@
 namespace :midjourney do
   desc "Install Midjourney Ruby Client"
-  task :install => :environment do
+  task install: :environment do
+    return :ok unless defined?(Rails)
+
     initializer_content = <<~RUBY
       # frozen_string_literal: true
 
@@ -14,14 +16,11 @@ namespace :midjourney do
 
     initializer_path = Rails.root.join("config", "initializers", "midjourney.rb")
 
-    unless File.exist?(initializer_path)
-      File.open(initializer_path, "w") do |f|
-        f.write(initializer_content)
-      end
-
-      puts Rainbow("Midjourney Ruby").purple + "has been installed! 🎉"
+    if File.exist?(initializer_path)
+      puts "\n  " + Rainbow("Midjourney Ruby").purple + " is already installed! 🎉"
+    else
+      File.open(initializer_path, "w") { |f| f.write(initializer_content) }
+      puts "\n  " + Rainbow("Midjourney Ruby").purple + " has been installed! 🎉"
     end
-
-    puts Rainbow("Midjourney Ruby").purple + "is already installed! 🎉"
   end
 end
