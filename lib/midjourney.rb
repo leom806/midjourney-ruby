@@ -3,7 +3,7 @@
 require_relative "midjourney/configuration"
 
 module Midjourney
-  VERSION = "0.1.2"
+  VERSION = "0.1.21"
 
   class Error < StandardError; end
 
