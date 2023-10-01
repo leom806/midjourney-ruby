@@ -41,19 +41,22 @@ That's it. You are now ready to go!
 
 ## Usage
 
-Make sure you have a Discord account and a Midjourney API Key to use this gem.
-You can find your Midjourney API Key in your [Midjourney Dashboard](https://www.midjourney.com) after you sign up for a plan at [Midjourney Plans](https://www.midjourney.com/account/).
+Make sure you have a
+  - Discord Account or create one at [Discord](https://discord.com)
+  - Discord Bot Token or create a token at [Discord Developer Portal](https://discord.com/developers/applications)
+  - A Midjourney account or sign up at [Midjourney](https://www.midjourney.com)
+  - A Midjourney Paid plan to use this gem or sign up at [Midjourney Plans](https://www.midjourney.com/account/)
 
 ### Configuration
 
-Once you have your API Key, you can configure the gem with:
+Once you have your Discord Bot Token, you can configure the gem with:
 
 Open up the initializer file `config/initializers/midjourney.rb` and add your API Keys as the following:
 
 ```ruby
   Midjourney.config do |config|
-    config.discord_api_key    = ENV["DISCORD_API_KEY"]
-    config.midjourney_api_key = ENV["MIDJOURNEY_API_KEY"]
+    config.discord_bot_token  = ENV["DISCORD_BOT_TOKEN"]
+    config.discord_bot_token  = ENV["DISCORD_BOT_TOKEN"]
   end
 ```
 
