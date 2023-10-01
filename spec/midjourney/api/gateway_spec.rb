@@ -9,10 +9,17 @@ RSpec.describe Midjourney::API::Gateway do
     expect(api.channel_id).to eq Midjourney.configuration.discord_channel_id
   end
 
-  it 'sends a message to Discord Channel' do
+  it 'sends a message to the Discord Channel' do
     api = create_api_gateway
     message = api.send_message('Hello World!')
 
     expect(message).to be_a(RestClient::Response)
+  end
+
+  it 'reads messages from the Discord Channel' do
+    api = create_api_gateway
+    message = api.read_messages
+
+    expect(message).to be_a(Array)
   end
 end

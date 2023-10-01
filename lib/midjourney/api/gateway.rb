@@ -6,7 +6,9 @@ module Midjourney
     # Discord API Gateway using RestClient
     #
     class Gateway
-      BASE_URL = ->(channel_id) { "https://discord.com/api/v9/channels/#{channel_id}" }
+      BASE_URL = 'https://discord.com/api/v9'
+
+      attr_reader :token, :channel_id
 
       def initialize(token:, channel_id:)
         @token = token
@@ -14,15 +16,15 @@ module Midjourney
       end
 
       def read_messages(limit = 50)
-        get_request("#{BASE_URL[@channel_id]}/messages?limit=#{limit}")
+        get_request("#{BASE_URL}/channels/#{channel_id}/messages?limit=#{limit}")
       end
 
       def send_message(message)
-        post_request("#{BASE_URL[@channel_id]}/messages", message_payload(message))
+        post_request("#{BASE_URL}/channels/#{channel_id}/messages", message_payload(message))
       end
 
       def send_imagine(prompt)
-        post_request("#{BASE_URL[@channel_id]}/interactions", imagine_payload(prompt))
+        post_request("#{BASE_URL}/interactions", imagine_payload(prompt))
       end
 
       private
@@ -44,7 +46,7 @@ module Midjourney
           type: 2,
           application_id: '936929561302675456',
           guild_id: '1158081328068165704',
-          channel_id: @channel_id,
+          channel_id: channel_id,
           session_id: '939307d50a643c3d8cfcf4e756063e3b',
           data: {
             version: '1118961510123847772',
@@ -81,7 +83,7 @@ module Midjourney
             },
             attachments: []
           }
-        }
+        }.to_json
       end
 
       def message_payload(message)
@@ -95,7 +97,7 @@ module Midjourney
 
       def headers
         @headers ||= {
-          'Authorization' => @token,
+          'Authorization' => token,
           'Accept' => 'application/json',
           'Content-Type' => 'application/json'
         }
