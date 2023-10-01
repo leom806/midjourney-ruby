@@ -55,8 +55,8 @@ Open up the initializer file `config/initializers/midjourney.rb` and add your AP
 
 ```ruby
   Midjourney.config do |config|
-    config.discord_bot_token  = ENV["DISCORD_BOT_TOKEN"]
-    config.discord_bot_token  = ENV["DISCORD_BOT_TOKEN"]
+    config.discord_bot_token   = ENV["DISCORD_BOT_TOKEN"]
+    config.discord_channel_id  = ENV["DISCORD_CHANNEL_ID"]
   end
 ```
 
