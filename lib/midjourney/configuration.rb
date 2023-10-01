@@ -1,9 +1,13 @@
 module Midjourney
+  #
+  # This class is used to store the configuration of the gem.
+  #
   class Configuration
-    attr_accessor :api_key
+    attr_accessor :discord_api_key, :midjourney_api_key
 
     def initialize
-      @api_key = nil
+      @discord_api_key    = nil
+      @midjourney_api_key = nil
     end
   end
 end

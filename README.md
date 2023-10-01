@@ -20,13 +20,13 @@ gem "midjourney-ruby"
 Or install with:
 
 ```shell
-gem install midjourney
+gem install midjourney-ruby
 ```
 
 and require with:
 
 ```ruby
-require "midjourney"
+require "midjourney-ruby"
 ```
 
 Run `bundle install`.
@@ -41,27 +41,37 @@ That's it. You are now ready to go!
 
 ## Usage
 
-You'll need a Midjourney API Key to use this gem. You can find your API Key in your [Midjourney Dashboard](https://www.midjourney.com) after you sign up for a plan at [Midjourney Plans](https://www.midjourney.com/account/).
+Make sure you have a Discord account and a Midjourney API Key to use this gem.
+You can find your Midjourney API Key in your [Midjourney Dashboard](https://www.midjourney.com) after you sign up for a plan at [Midjourney Plans](https://www.midjourney.com/account/).
 
 ### Configuration
 
 Once you have your API Key, you can configure the gem with:
 
-Open up the initializer file `config/initializers/midjourney.rb` and add your API Key as the following:
+Open up the initializer file `config/initializers/midjourney.rb` and add your API Keys as the following:
 
 ```ruby
   Midjourney.config do |config|
-    config.api_key = ENV["YOUR_API_KEY"]
+    config.discord_api_key    = ENV["DISCORD_API_KEY"]
+    config.midjourney_api_key = ENV["MIDJOURNEY_API_KEY"]
   end
 ```
 
 ### Imagine
 
+Imagine is a Midjourney command that allows you to use AI to generate images.
+You can use it to generate images of people, animals, objects, and anything else you can imagine.
+
+#### Basic Usage
+
+```ruby
+  Midjourney.imagine("A person, sitting on a chair, in a room, with a window, looking outside, with a cat, on the floor, sleeping")
+```
+
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+After checking out the repo, run `bin/setup` to install dependencies. Then, run `bundle exec rspec` to run the tests.
+You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
 ## Contributing
 
