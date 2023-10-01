@@ -47,6 +47,8 @@ Make sure you have a
   - A Midjourney account or sign up at [Midjourney](https://www.midjourney.com)
   - A Midjourney Paid plan to use this gem or sign up at [Midjourney Plans](https://www.midjourney.com/account/)
 
+<img width="1512" alt="image" src="https://github.com/leom806/midjourney-ruby/assets/7718776/b359f41d-e6d2-455a-8c32-fd06e89e262a">
+
 ### Configuration
 
 Once you have your Discord Bot Token, you can configure the gem with:
