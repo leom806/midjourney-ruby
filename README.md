@@ -6,8 +6,10 @@
 
 Midjourney is an awesome tool that brings great value to products.
 This gem was created to facilitate Ruby and also Rails applications to use all services of Midjourney directly.
+Please note that this library is unofficial and not affiliated with Midjourney or Discord.
 
-Keep in mind that you need to have a Midjourney account to use this gem, checkout [Midjourney](https://www.midjourney.com) for more information.
+The Terms of Service of Midjourney/Discord seems to not allow any kind of automation, for now this gem is a research project and should not be used in production.
+When Midjourney releases an official API, this gem will be updated to use it.
 
 ## Installation
 
@@ -43,11 +45,13 @@ That's it. You are now ready to go!
 
 Make sure you have a
   - Discord Account or create one at [Discord](https://discord.com)
-  - Discord Bot Token or create a token at [Discord Developer Portal](https://discord.com/developers/applications)
   - A Midjourney account or sign up at [Midjourney](https://www.midjourney.com)
   - A Midjourney Paid plan to use this gem or sign up at [Midjourney Plans](https://www.midjourney.com/account/)
 
-<img width="1512" alt="image" src="https://github.com/leom806/midjourney-ruby/assets/7718776/b359f41d-e6d2-455a-8c32-fd06e89e262a">
+After signing in, you can get your Discord token by checking out any message request you send in the browser.
+You can do this by opening the developer tools in your browser and going to the network tab.
+Then send a message in any channel and look for the request to `messages` in the network tab.
+Check out the Request Headers and look for the `authorization` header. Copy the value of the header and use it as your Discord User Token.
 
 ### Configuration
 
@@ -57,7 +61,7 @@ Open up the initializer file `config/initializers/midjourney.rb` and add your AP
 
 ```ruby
   Midjourney.config do |config|
-    config.discord_bot_token   = ENV["DISCORD_BOT_TOKEN"]
+    config.discord_user_token  = ENV["DISCORD_USER_TOKEN"]
     config.discord_channel_id  = ENV["DISCORD_CHANNEL_ID"]
   end
 ```
@@ -68,6 +72,20 @@ Imagine is a Midjourney command that allows you to use AI to generate images.
 You can use it to generate images of people, animals, objects, and anything else you can imagine.
 
 #### Basic Usage
+
+#### Reading the channel's messages
+
+```ruby
+  Midjourney.read_messages() # optional limit parameter (default: 50)
+```
+
+#### Sending a message to the channel
+
+```ruby
+  Midjourney.send_message("Hello World!")
+```
+
+#### Using the /imagine command
 
 ```ruby
   Midjourney.imagine("A person, sitting on a chair, in a room, with a window, looking outside, with a cat, on the floor, sleeping")

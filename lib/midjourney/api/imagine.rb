@@ -6,8 +6,8 @@ module Midjourney
     # Midjourney Imagine Module
     #
     module Imagine
-      def imagine
-        puts 'Imagine a world where you can send messages to Discord...'
+      def imagine(prompt)
+        api.send_imagine(prompt)
       end
     end
   end

@@ -5,7 +5,7 @@ RSpec.describe Midjourney::API::Gateway do
     api = create_api_gateway
 
     expect(api).to be_a(Midjourney::API::Gateway)
-    expect(api.token).to eq Midjourney.configuration.discord_bot_token
+    expect(api.token).to eq Midjourney.configuration.discord_user_token
     expect(api.channel_id).to eq Midjourney.configuration.discord_channel_id
   end
 

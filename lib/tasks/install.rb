@@ -15,7 +15,7 @@ namespace :midjourney do
         # Fetch from an environment variable or fetch from Rails credentials if
         # you're using Rails 5.2+ and have credentials set up.
 
-        config.discord_bot_token  = ENV['DISCORD_BOT_TOKEN']
+        config.discord_user_token  = ENV['DISCORD_USER_TOKEN']
         config.discord_channel_id = ENV['DISCORD_CHANNEL_ID']
       end
     RUBY
