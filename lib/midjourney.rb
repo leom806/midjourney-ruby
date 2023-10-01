@@ -15,7 +15,7 @@ require_relative 'midjourney/api/messages'
 # Midjourney Ruby Client
 #
 module Midjourney
-  VERSION = '0.1.21'
+  VERSION = '0.2.0'
 
   class Error < StandardError; end
 
