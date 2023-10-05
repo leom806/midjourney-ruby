@@ -2,7 +2,6 @@
 
 [![Gem Version](https://badge.fury.io/rb/midjourney-ruby.svg)](https://badge.fury.io/rb/midjourney-ruby)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/leom806/midjourney-ruby/blob/main/LICENSE.txt)
-[![CircleCI Build Status](https://circleci.com/gh/leom806/midjourney-ruby.svg?style=shield)](https://circleci.com/gh/leom806/midjourney-ruby)
 
 Midjourney is an awesome tool that brings great value to products.
 This gem was created to facilitate Ruby and also Rails applications to use all services of Midjourney directly.
